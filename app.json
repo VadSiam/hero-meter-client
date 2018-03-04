@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "Hero Meter",
+    "description": "This project will help you be a hero",
+    "slug": "Hero_Meter",
+    "privacy": "public",
+    "sdkVersion": "25.0.0",
+    "platforms": ["ios", "android"],
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./src/assets/imgs/icon.png",
+    "splash": {
+      "image": "./src/assets/imgs/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#f1f1f1"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "icon": "./src/assets/imgs/icon.png"
+    },
+    "androidStatusBar": {
+        "barStyle": "dark-content",
+        "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "package": "com.avocadotechnology.jobypepper",
+      "icon": "./src/assets/imgs/icon.png",
+      "permissions": [
+        "CAMERA",
+        "MANAGE_DOCUMENTS",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_INTERNAL_STORAGE",
+        "WRITE_INTERNAL_STORAGE",
+        "CHANGE_CONFIGURATION",
+        "com.google.android.c2dm.permission.RECEIVE",
+        "com.android.launcher.permission.INSTALL_SHORTCUT",
+        "com.htc.launcher.permission.UPDATE_SHORTCUT"
+      ],
+      "splash": {
+        "ldpi": "./src/assets/imgs/splash.png",
+        "mdpi": "./src/assets/imgs/splash.png",
+        "hdpi": "./src/assets/imgs/splash.png",
+        "xhdpi": "./src/assets/imgs/splash.png",
+        "xxhdpi": "./src/assets/imgs/splash.png",
+        "xxxhdpi": "./src/assets/imgs/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#f1676e"
+      }
+    }
+  }
+}
