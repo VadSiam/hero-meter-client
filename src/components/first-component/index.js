@@ -5,7 +5,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import { FormLabel, FormInput } from 'react-native-elements';
+import R from 'ramda';
 
 // import withApollo from 'apollo-client';
 import { compose, withApollo } from 'react-apollo';
@@ -13,6 +13,11 @@ import gql from 'graphql-tag';
 
 import { SimpleButton } from '../common-components/button';
 import { Input } from '../common-components/input';
+import {
+  onRegisteredNewUser,
+  onAuthorizationUser,
+  onGetToken,
+} from '../../api-store/auth/actions';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,13 +37,19 @@ query{
 }
 `;
 
-const registerMutation = gql`
-mutation {
-  registration(name: "vad", password: "0000") {
-    name
-  }
-}
-`;
+// const registrationUserMutation = gql`
+// mutation (
+//   $name: String!,
+//   $password: String!,
+// ){
+//   registration(
+//     name: $name,
+//     password: $password,
+//   ) {
+//     name
+//   }
+// }
+// `;
 
 class FirstComponent extends Component {
   state = {
@@ -58,14 +69,34 @@ class FirstComponent extends Component {
   // );
   // }
 
-  onRegisteredNewUser = () => {
+  registeredNewUser = () => {
     const { name, password } = this.state;
+    const { client } = this.props;
+    const answer = onRegisteredNewUser(client, name, password);
+    console.log('answer', answer);
+  };
+
+  getUserData = () => {
+    const { name, password } = this.state;
+    const { client } = this.props;
+    onAuthorizationUser(client, name, password);
+  };
+
+  onCheckCache = () => {
+    const { client } = this.props;
+    const token = onGetToken(client);
+    console.log('value', token);
+  };
+
+  getUsers = () => {
+
   };
 
   onTypeText = (text, name) => this.setState({ [name]: text });
 
   render() {
-    console.log('text', this.state);
+    console.log('state', this.state);
+    console.log('props', this.props);
 
     return (
       <View style={styles.container}>
@@ -80,7 +111,27 @@ class FirstComponent extends Component {
 
         <SimpleButton
           title="Apply"
-          onPress={() => console.log('work!')} />
+          onPress={this.registeredNewUser} />
+
+        <Input
+          placeholder="e-mail"
+          onChangeText={text => this.onTypeText(text, 'name')} />
+        <Input
+          placeholder="password"
+          containerStyle={{ marginTop: 20, marginBottom: 20 }}
+          onChangeText={text => this.onTypeText(text, 'password')} />
+
+        <SimpleButton
+          title="Login"
+          onPress={this.getUserData} />
+
+        <SimpleButton
+          title="CheckCache"
+          onPress={this.onCheckCache} />
+
+        <SimpleButton
+          title="Get Users"
+          onPress={this.getUsers} />
       </View>
     );
   }

@@ -23,6 +23,7 @@ export const Input = ({
     <FormInput
       inputStyle={{ fontFamily: 'Pancake', fontSize: 26 }}
       placeholder={placeholder}
+      autoCapitalize="none"
       onChangeText={onChangeText} />
   </View>
 );
