@@ -17,6 +17,7 @@ import {
   onRegisteredNewUser,
   onAuthorizationUser,
   onGetToken,
+  onGetUsers,
 } from '../../api-store/auth/actions';
 
 const styles = StyleSheet.create({
@@ -29,13 +30,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const firstQuery = gql`
-query{
-  users{
-    name
-  }
-}
-`;
+// const firstQuery = gql`
+// query{
+//   users{
+//     name
+//   }
+// }
+// `;
 
 // const registrationUserMutation = gql`
 // mutation (
@@ -71,25 +72,23 @@ class FirstComponent extends Component {
 
   registeredNewUser = () => {
     const { name, password } = this.state;
-    const { client } = this.props;
-    const answer = onRegisteredNewUser(client, name, password);
+    const answer = onRegisteredNewUser({ name, password });
     console.log('answer', answer);
   };
 
   getUserData = () => {
     const { name, password } = this.state;
-    const { client } = this.props;
-    onAuthorizationUser(client, name, password);
+    onAuthorizationUser({ name, password });
   };
 
   onCheckCache = () => {
-    const { client } = this.props;
-    const token = onGetToken(client);
+    const token = onGetToken();
     console.log('value', token);
   };
 
   getUsers = () => {
-
+    const users = onGetUsers();
+    console.log('users', users);
   };
 
   onTypeText = (text, name) => this.setState({ [name]: text });

@@ -35,3 +35,11 @@ export const autorizationUserMutation = gql`
     }
   }
 `;
+
+export const usersQuery = gql`
+query{
+  users{
+    name
+  }
+}
+`;
