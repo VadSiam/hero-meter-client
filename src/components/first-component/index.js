@@ -4,12 +4,12 @@ import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
+  // $FlowFixMe
 } from 'react-native';
-import R from 'ramda';
 
 // import withApollo from 'apollo-client';
+// $FlowFixMe
 import { compose, withApollo } from 'react-apollo';
-import gql from 'graphql-tag';
 
 import { SimpleButton } from '../common-components/button';
 import { Input } from '../common-components/input';
@@ -52,7 +52,12 @@ const styles = StyleSheet.create({
 // }
 // `;
 
-class FirstComponent extends Component {
+type State = {
+  name: string,
+  password: string,
+};
+
+class FirstComponent extends Component<{}, State> {
   state = {
     name: '',
     password: '',

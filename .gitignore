@@ -1,3 +1,6 @@
 node_modules/**/*
 .expo/*
 npm-debug.*
+
+erl_crash.dump
+yarn-error.log
