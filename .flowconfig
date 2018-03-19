@@ -29,6 +29,7 @@
 .*/node_modules/react-native/Libraries/.*
 .*/node_modules/expo/.*
 .*/node_modules/graphql/.*
+.*/node_modules/config-chain/.*
 
 [include]
 ../src/*.js
