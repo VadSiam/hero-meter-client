@@ -2,14 +2,23 @@
 
 import React from 'react';
 import { Button } from 'react-native-elements';
+import { COLOR } from '../../assets/const-styles';
+
+type Props = {
+  title?: string,
+  onPress?: () => void,
+  borderRadius?: number,
+  backgroundColor?: string,
+  fontSize?: number,
+};
 
 export const SimpleButton = ({
-  title = 'BUTTON',
+  title,
   onPress,
-  borderRadius = 6,
-  backgroundColor = '#4CAF50',
-  fontSize = 24,
-}) => (
+  borderRadius,
+  backgroundColor,
+  fontSize,
+}: Props) => (
   <Button
     onPress={onPress}
     borderRadius={borderRadius}
@@ -18,3 +27,11 @@ export const SimpleButton = ({
     fontFamily="Pancake"
     title={title} />
 );
+
+SimpleButton.defaultProps = {
+  title: 'BUTTON',
+  onPress: null,
+  borderRadius: 6,
+  backgroundColor: COLOR.mainOne,
+  fontSize: 24,
+};

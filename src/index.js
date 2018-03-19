@@ -7,7 +7,8 @@ import { ApolloProvider } from 'react-apollo';
 import { Font } from 'expo';
 
 import { client } from './config/client';
-import FirstComponent from './components/first-component';
+import Router from './components/routes';
+// import FirstComponent from './components/first-component';
 
 const Pancake = require('./assets/fonts/KBPancakeParty.ttf');
 
@@ -36,7 +37,7 @@ export default class RootComponent extends Component<{}, State> {
 
     return (
       <ApolloProvider client={client}>
-        <FirstComponent />
+        <Router />
       </ApolloProvider>
     );
   }

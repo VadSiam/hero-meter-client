@@ -28,7 +28,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 
 const errorLogger = onError(({ networkError }) => {
   /* eslint-disable no-console */
-  console.error('ERROR', networkError);
+  console.log('<<<ERROR>>>', networkError);
 });
 
 persistCache({

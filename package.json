@@ -26,7 +26,9 @@
     "react-apollo": "^2.0.4",
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-native-elements": "^0.19.0",
-    "react-navigation": "^1.4.0"
+    "react-native-tabs": "^1.0.9",
+    "react-navigation": "^1.4.0",
+    "recompose": "^0.26.0"
   },
   "devDependencies": {
     "apollo-link-logger": "^1.2.0",
