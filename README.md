@@ -7,6 +7,7 @@ This Project require:
 3. one of platform simulator
     - iOS: xCode + Simulator iPhone(optionality can be dowloaded from the xCode)
     - Android Studio (with SDK) https://developer.android.com/studio/index.html
+
 expo.io have good recommendation about simulators =)
 
 How to start:
