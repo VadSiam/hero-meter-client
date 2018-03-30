@@ -1,4 +1,9 @@
+/* @flow */
+
 import R from 'ramda';
+// $FlowFixMe
+import { AsyncStorage } from 'react-native';
+
 
 import { client } from '../../config/client';
 import {
@@ -8,7 +13,12 @@ import {
   usersQuery,
 } from './schema';
 
-export const onRegisteredNewUser = async ({ name, password }) => {
+type ThisObject = {
+  name: string,
+  password: string,
+}
+
+export const onRegisteredNewUser = async ({ name, password }: ThisObject) => {
   try {
     const registration = await client.mutate({
       mutation: registrationUserMutation,
@@ -22,7 +32,8 @@ export const onRegisteredNewUser = async ({ name, password }) => {
   } catch (error) { console.error('error', error); }
 };
 
-export const onAuthorizationUser = async ({ name, password }) => {
+export const onAuthorizationUser = async ({ name, password }: ThisObject) => {
+  console.log('-->>', name, password);
   try {
     const { data } = await client.mutate({
       mutation: autorizationUserMutation,
@@ -32,7 +43,7 @@ export const onAuthorizationUser = async ({ name, password }) => {
       },
     });
     client.writeQuery({ query: autorizationTokenQuery, data }); // write token to apollo-cache
-  } catch (error) { console.error('error', error); }
+  } catch (error) { console.log('error', error); }
 };
 
 export const onGetToken = () => {
@@ -43,7 +54,7 @@ export const onGetToken = () => {
     const token = R.path(['authorization', 'value'], response);
     return token;
   } catch (error) {
-    console.log('new->', error);
+    console.log('<<<token empty>>>');
     return null;
   }
 };
@@ -58,4 +69,8 @@ export const onGetUsers = async () => {
   } catch (error) {
     console.log('new->', error);
   }
+};
+
+export const onResetToken = () => {
+  AsyncStorage.clear();
 };

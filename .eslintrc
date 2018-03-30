@@ -37,11 +37,11 @@
     "no-restricted-syntax": 0,
     "import/prefer-default-export": 0,
     "import/extensions": 0,
-    "react/forbid-prop-types": 0,
     "jsx-a11y/href-no-hash": 0,
     "react/sort-comp": 0
   },
   "settings": {
+    "import/ignore": "node_modules",
     "import/resolver": {
       "node": {
         "extensions": [
