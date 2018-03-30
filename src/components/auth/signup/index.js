@@ -70,7 +70,7 @@ class SignUpComponent extends Component<{}, State> {
 
   signUpUser = () => {
     const { name, password } = this.state;
-    onRegisteredNewUser({ name, password });
+    // onRegisteredNewUser({ name, password });
     this.setState({ name: '', password: '' });
     this.onClearFields();
   };
