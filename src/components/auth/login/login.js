@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  inputPassword: {
+    marginTop: 20,
+    marginBottom: 20,
+  },
 });
 
 type Props = {
@@ -65,7 +69,7 @@ class LoginComponent extends Component<Props, State> {
         <Input
           clear={clear}
           placeholder="password"
-          containerStyle={{ marginTop: 20, marginBottom: 20 }}
+          containerStyle={styles.inputPassword}
           onChangeText={text => this.onTypeText(text, 'password')} />
 
         <SimpleButton

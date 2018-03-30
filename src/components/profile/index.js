@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
 const Authorization = () => (
   <View style={styles.container}>
-    <Text>LOGINED!!!</Text>
+    <Text>Profile!</Text>
   </View>
 );
 

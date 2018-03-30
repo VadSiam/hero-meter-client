@@ -46,6 +46,29 @@ export const onAuthorizationUser = async ({ name, password }: ThisObject) => {
   } catch (error) { console.log('error', error); }
 };
 
+// class GraphQLRequestLink extends ApolloLink {
+//
+//   constructor({ endpoint, headers }) {
+//     super()
+//     this.client = new GraphQLClient(endpoint, { headers })
+//   }
+//
+//   request (operation) {
+//     return new Observable(observer => {
+//       const { variables, query } = operation
+//       this.client.request(print(query), variables)
+//         .then(data => {
+//           observer.next(data)
+//           observer.complete()
+//         })
+//         .catch(e => {
+//           observer.error(e)
+//         })
+//     })
+//   }
+//
+// }
+
 export const onGetToken = () => {
   try {
     const response = client.readQuery({ // read token from apollo-cache
